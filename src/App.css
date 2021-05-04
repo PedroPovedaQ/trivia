@@ -1,0 +1,12 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: #e0e0e0;
+  display: flex;
+}
+
+#root {
+  width: 100%;
+}
