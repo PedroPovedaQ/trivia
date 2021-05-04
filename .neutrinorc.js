@@ -8,7 +8,6 @@ module.exports = {
     root: __dirname
   },
   use: [
-    airbnb(),
     react({
       html: {
         title: 'G2i-Trivia'
@@ -18,9 +17,7 @@ module.exports = {
         loaders: [
           {
             loader: 'postcss-loader',
-            options: {
-              plugins: [require('autoprefixer')]
-            }
+            options: {}
           },
           {
             loader: 'sass-loader',

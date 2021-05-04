@@ -12,7 +12,7 @@ function Trivia() {
   useEffect(() => {
     async function fetchQuestions() {
       try {
-        let result = await fetch(
+        const result = await fetch(
           `https://opentdb.com/api.php?amount=${questionAmount}&difficulty=hard&type=boolean`
         ).then((response) => response.json());
         setQuestions(result.results);
@@ -26,7 +26,7 @@ function Trivia() {
   const handleAnswerClick = (question, userAnswer) => {
     setAnswers((prevArray) => [
       ...prevArray,
-      { correct: question.answer === userAnswer }
+      { correct: question.correct_answer === userAnswer }
     ]);
     setCount((prevCount) => prevCount + 1);
   };
@@ -37,10 +37,9 @@ function Trivia() {
   if (!questions.length) {
     return <div>Loading...</div>;
   }
-  console.log(questions);
   return (
-    <Fragment>
-      {count < questionAmount ? (
+    <>
+      {count <= questionAmount ? (
         <Question
           question={questions[count - 1]}
           currentQuestionNum={count}
@@ -48,11 +47,11 @@ function Trivia() {
           onAnswer={({ question, userAnswer }) =>
             handleAnswerClick(question, userAnswer)
           }
-        ></Question>
+        />
       ) : (
-        <Results questions={questions} answers={answers}></Results>
+        <Results questions={questions} answers={answers} />
       )}
-    </Fragment>
+    </>
   );
 }
 

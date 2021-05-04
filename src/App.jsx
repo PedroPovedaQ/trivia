@@ -1,8 +1,7 @@
-import { hot } from 'react-hot-loader';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
 import React from 'react';
-import './App.css';
+import { hot } from 'react-hot-loader';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './App.scss';
 import Home from './components/Home';
 import Trivia from './components/Trivia';
 
